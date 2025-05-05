@@ -52,7 +52,7 @@ STEREOTYPE-ANALYZER/
 ├── translate.py Language detection and translation
 ├── test_doc.pdf Sample script for testing
 ├── test_vdo.mp4 Sample trailer for testing
-├── demo.mp4  Demo video showing how the app works
+├── demo_vdo.mp4  Demo video showing how the app works
 ├── scripts/ [Create this folder to store trained models or embeddings] 
 ```
 ---
