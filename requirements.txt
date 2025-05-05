@@ -7,5 +7,6 @@ torch
 opencv-python
 deepface
 numpy
+cv2
 regex
 scikit-learn
