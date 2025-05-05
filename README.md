@@ -66,7 +66,7 @@ STEREOTYPE-ANALYZER/
 1. **Clone the repository**
    ```bash
    git clone https://github.com/YOUR-USERNAME/STEREOTYPE-ANALYZER.git
-   cd STEREOTYPE-ANALYZER2
+   cd STEREOTYPE-ANALYZER
    ```
 2. **Install required packages**
 ```bash
