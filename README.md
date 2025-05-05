@@ -44,17 +44,17 @@ This project aims to identify, quantify, and reduce gender-based stereotypes in 
 ---
 
 ## 📁 Project Structure
-
+```
 STEREOTYPE-ANALYZER/
-├── app.py  # Streamlit frontend
-├── cleaner.py # Script cleaning and dialogue parser
-├── main.py # Core processing logic
-├── translate.py # Language detection and translation
-├── test_doc.pdf # Sample script for testing
-├── test_vdo.mp4 # Sample trailer for testing
-├── demo.mp4 #  Demo video showing how the app works
-├── scripts/ #  [Create this folder to store trained models or embeddings] 
-
+├── app.py  Streamlit frontend
+├── cleaner.py Script cleaning and dialogue parser
+├── main.py Core processing logic
+├── translate.py Language detection and translation
+├── test_doc.pdf Sample script for testing
+├── test_vdo.mp4 Sample trailer for testing
+├── demo.mp4  Demo video showing how the app works
+├── scripts/ [Create this folder to store trained models or embeddings] 
+```
 ---
 ## ⚙ Getting Started
 
