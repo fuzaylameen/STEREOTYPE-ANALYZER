@@ -22,7 +22,7 @@ This project aims to identify, quantify, and reduce gender-based stereotypes in 
 - Processes video files to detect faces and identify gender/emotion via facial recognition.
 - Calculates gender-wise screen time and emotional diversity.
 
-### Bias Detection
+###Bias Detection
 - Uses sentence-transformers and cosine similarity to match text with stereotypical roles or patterns.
 - Flags content with potential gender bias.
 - Recommends improvements for inclusive representation.
@@ -59,7 +59,7 @@ STEREOTYPE-ANALYZER/
 
 ```
 ---
-## ⚙ Getting Started
+## Getting Started
 
 ###  Installation
 
