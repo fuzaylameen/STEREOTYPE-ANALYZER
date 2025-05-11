@@ -1,11 +1,4 @@
 streamlit
 pdfplumber
-langdetect
-deep-translator
-sentence-transformers
-torch
-opencv-python
-deepface
-numpy
-regex
-scikit-learn
+pytesseract
+pdf2image
