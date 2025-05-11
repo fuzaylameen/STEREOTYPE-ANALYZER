@@ -1,104 +1,111 @@
-# 🎬 STEREOTYPE-ANALYZER
+# STEREOTYPE-ANALYZER
 
-**AI-Powered Tool to Detect Gender Stereotypes in Bollywood Content (1970–2017)**
-
----
-
-##  Objective
-
-This project aims to identify, quantify, and reduce gender-based stereotypes in Bollywood films using Artificial Intelligence and Machine Learning. The system analyzes various media inputs such as scripts, trailers, and posters to highlight gender bias in character roles, dialogue, emotions, and screen time.
+**AI-Powered Tool to Detect Gender Stereotypes in Bollywood Scripts (1970–2017)**
 
 ---
 
-##  Key Features
+## Objective
+
+This tool leverages AI and NLP to detect gender stereotypes in Bollywood movie scripts. It extracts text from PDFs, processes the content, and uses a prompt-based LLM (via Ollama and LLaMA 3.2) to highlight scenes, dialogues, and characters that may portray biased gender representations.
+
+---
+
+## Features
 
 ### Script Analysis
-- Extracts dialogues from PDF movie scripts.
-- Translates non-English content to English.
-- Cleans and merges multiline dialogues.
-- Matches content against known stereotype phrases using sentence embeddings.
+- Extracts text from PDF scripts using `pdfplumber` and fallback OCR via `pytesseract`.
+- Accepts both clean and scanned PDF formats.
+- Sends analyzed script data to a local LLM using the `ollama` interface.
+- Highlights dialogues/actions reinforcing traditional or harmful gender stereotypes.
 
-### Trailer Analysis
-- Processes video files to detect faces and identify gender/emotion via facial recognition.
-- Calculates gender-wise screen time and emotional diversity.
-
-###Bias Detection
-- Uses sentence-transformers and cosine similarity to match text with stereotypical roles or patterns.
-- Flags content with potential gender bias.
-- Recommends improvements for inclusive representation.
+### LLM Integration
+- Communicates with LLaMA 3.2 running via `ollama`.
+- Uses a detailed prompt containing predefined stereotype patterns.
+- Outputs human-readable findings including:
+  - **Scene Description**
+  - **Dialogue/Action**
+  - **Involved Characters**
+  - **Reason for Stereotypical Label**
 
 ---
 
 ## Technologies & Libraries
 
-- `streamlit` – Frontend interface
-- `pdfplumber` – Extract text from movie scripts (PDF)
-- `langdetect` – Detect language
-- `deep-translator` – Translate Hindi/Hinglish to English
-- `sentence-transformers` – Sentence embedding generation
-- `torch` – Deep learning support
-- `opencv-python` – Video frame processing
-- `deepface` – Facial recognition and emotion detection
-- `numpy` – Data manipulation
+- `streamlit` – Interactive frontend
+- `pdfplumber` – Text extraction from PDFs
+- `pytesseract` – OCR for scanned pages
+- `pdf2image` – Convert PDF pages to images for OCR
+- `subprocess` – Interface with Ollama (LLM backend)
+- `tempfile` – Securely handle uploaded PDFs
 
 ---
 
-## 📁 Project Structure
+## Project Structure
+
 ```
 STEREOTYPE-ANALYZER/
-├── app.py              - Streamlit frontend
-├── cleaner.py          - Script cleaning and dialogue parser
-├── main.py             - Core processing logic
-├── translate.py        - Language detection and translation
-├── test_doc.pdf        - Sample script for testing
-├── test_vdo.mp4        - Additional script test file
-├── demo_vdo.mp4        - Demo video showing how the app works
-├── scripts/            - [Create this folder to store trained models or embeddings]
-├── requirements.txt    - List of required Python libraries
-├── README.md           - Project documentation
-
+├── app.py # Main Streamlit app
+├── test_doc.pdf # Sample movie script
+├── requirements.txt # Python dependencies
+├── README.md # Project documentation
 ```
+
+
+> *Note:* This version is focused solely on script analysis. Future updates will expand to include trailer and poster analysis.
+
 ---
-## Getting Started
 
-###  Installation
+## Installation & Usage
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/STEREOTYPE-ANALYZER.git
-   cd STEREOTYPE-ANALYZER
-   ```
-2. **Install required packages**
+### 1. Clone the Repository
+```bash
+git clone https://github.com/YOUR-USERNAME/STEREOTYPE-ANALYZER.git
+cd STEREOTYPE-ANALYZER
+```
+
+### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
-3. **Create scripts/ folder (if not already present)**
-```bash
-mkdir scripts
-```
 
-4. **This is used to store model embeddings, processed data, and intermediate results.**
-Run the Streamlit App
+### 3. Run the Streamlit App
 ```bash
 streamlit run app.py
 ```
 
----
+Ollama must be installed and running locally with LLaMA 3.2 pulled.
+You can install it from https://ollama.com
 
- Demo
+### Sample Output
 
-Watch demo.mp4 for a quick walkthrough of the application’s features and usage.
+Once a script is uploaded and analyzed, the tool outputs structured sections like:
 
----
+Scene Description: [Brief text...]
+Dialogue/Action: "She only falls for him after he fights the goons."
+Characters: Male (Hero), Female (Love Interest)
+Reason: Romanticization of violence and submission.
 
- Test Files
+### Requirements
 
-test_doc.pdf and test_vdo.pdf: Sample movie scripts for testing analysis modules.
+Make sure your requirements.txt includes:
+```bash
+streamlit
+pdfplumber
+pytesseract
+pdf2image
+```
 
+Also ensure:
 
----
+Tesseract OCR is installed on your system.
+Ollama is installed and configured with a model like llama3.
 
- Notes
+### Test Script
 
-Ensure that required pre-trained models for DeepFace and sentence-transformers are downloaded when first used.
-The tool is in active development—poster and Wikipedia summary analysis modules will be added in future versions.
+Use test_doc.pdf included in the repo to test the tool’s functionality.
+
+### Future Work
+
+Poster Analysis – Detect objectification or visual bias.
+Trailer Analysis – Emotion detection, screen time stats.
+Wikipedia Summary Bias – NLP-based summary checks.
